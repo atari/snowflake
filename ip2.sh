@@ -4,7 +4,7 @@ mkdir ip
 echo -e "\033[0;30m"
 conntrack -L -p udp | grep ASSURED  > 1
 conntrack -L -p udp -f ipv6 | grep ASSURED >> 1
-cat 1 | awk '{ print $4 }' | awk -F= '{ print $2 }' | sort | uniq -c | awk '{ print $2 }' > 2
+cat 1 | awk '{ print $4 }' | awk -F= '{ print $2 }' | sort | uniq -c | awk '{ print $2 }' | sed 's/\.[0-9]*$/.0/' > 2
 Linenum=`wc -l < 2`
 if [ "$Linenum" -lt 396 ];
 then
