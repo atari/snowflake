@@ -72,6 +72,8 @@ and nothing shows up, you don't have it. Most recent Ubuntu desktop and servers 
 ```
 apt install conntrack
 ```
+have a look at /proc/sys/net/netfilter/nf_conntrack_udp_timeout to see why output of ip.sh and ip2.sh differ.
+
 then use **ip2.sh** which is written specifically for conntrack utilities.
 
 If you have more than 400 IP addresses connected to you, the script will not run as it exceeds the API limit. This script is not useful for a Tor Relay or bridge either.
