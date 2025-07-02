@@ -3,7 +3,7 @@
 mkdir ip
 cat /proc/net/nf_conntrack | grep ASSURED | grep udp | awk '{ print $6 }' | awk -F= '{ print $2 }' | sort | uniq -c | awk '{ print $2 }' | sed 's/\.[0-9]*$/.0/' | sed 's/....:....:....:....:....:....$/::/' > 1
 Linenum=`wc -l < 1`
-if [ "$Linenum" -lt 396 ];
+if [ "$Linenum" -lt 2396 ];
 then
 split -l 99 -d 1 ip/3
 else
@@ -21,5 +21,5 @@ done;
 echo -e "\033[1;37m"
 cat 3 | sed 's/{country://g' | sed 's/}//;s/{//g' | sed 's/]//g' | sed 's/\[//g' | sort | uniq -c
 echo -e "\033[0m"
-/bin/rm -r -f 1 3 2-300 2-301 2-302 2-303
+/bin/rm -r -f 1 3 2-3*
 /bin/rm -r ip
