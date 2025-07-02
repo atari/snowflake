@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 mkdir ip
-cat /proc/net/nf_conntrack | grep ASSURED | grep udp | awk '{ print $6 }' | awk -F= '{ print $2 }' | sort | uniq -c | awk '{ print $2 }' | sed 's/\.[0-9]*$/.0/' > 1
+cat /proc/net/nf_conntrack | grep ASSURED | grep udp | awk '{ print $6 }' | awk -F= '{ print $2 }' | sort | uniq -c | awk '{ print $2 }' | sed 's/\.[0-9]*$/.0/' | sed 's/....:....:....:....:....:....$/::/' > 1
 Linenum=`wc -l < 1`
 if [ "$Linenum" -lt 396 ];
 then
