@@ -18,7 +18,7 @@ and nothing shows up, you don't have it. Most recent Ubuntu desktop and servers 
 apt install conntrack
 ```
 ```
-run **iptables.sh**
+run iptables.sh
 ```
 
 # A word of warning
